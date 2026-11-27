@@ -1,0 +1,20 @@
+{
+  "name": "trustlens-telegraph",
+  "version": "1.0.0",
+  "description": "TrustLens — Consumer Platform Claim, Link & Listing Trust Verifier powered by Telegraph Protocol (Season II Mission 07)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "cli": "node src/cli.js",
+    "probe": "node src/cli.js probe",
+    "demo:offline": "node src/cli.js presets --mode fixture",
+    "test": "node --test test/trustlens.test.js"
+  },
+  "dependencies": {
+    "ethers": "^6.13.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
