@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+!.env.example
+evidence/ledger.jsonl
+evidence/live-ledger.jsonl
+*.log
+.DS_Store
