@@ -1,0 +1,118 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz6r2yz_77d4ba",
+  "timestamp": "2026-11-27T16:18:22.283Z",
+  "executionMode": "live",
+  "isLivePayment": true,
+  "network": "telegraph-escrow (sepolia-testnet)",
+  "nodeUrl": "https://backend.telegraphprotocol.com",
+  "input": {
+    "claim": "Water boils at 100 degrees Celsius at standard atmospheric pressure (1 atm).",
+    "url": "https://example.com",
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.05
+  },
+  "verdict": "UNKNOWN",
+  "action": "ABSTAIN_HUMAN_REVIEW_REQUIRED",
+  "confidence": 0.63,
+  "headline": "Insufficient or unverifiable evidence — returning UNKNOWN",
+  "explanation": "1 of 2 check(s) could not establish verifiable public proof (URL_SAFE_GENERAL). Refusing forced binary judgment.",
+  "contradictions": [],
+  "uncertaintyFactors": [
+    "Provider confidence (60%) is below the 65% decision threshold."
+  ],
+  "accounting": {
+    "totalCostUsd": 0.02,
+    "currency": "USDC",
+    "stepsPlanned": 2,
+    "stepsExecuted": 2,
+    "stepsSkippedByCap": 0,
+    "totalLatencyMs": 60189
+  },
+  "checks": [
+    {
+      "stepId": "url-safe",
+      "targetFamily": "URL_SAFE",
+      "requestedIntent": "URL_SAFE_GENERAL",
+      "routedIntent": "URL_SAFE_GENERAL",
+      "minerId": "5530",
+      "minerName": "Telegraph Verity Intelligence",
+      "servedRank": 1,
+      "signalHash": "0x0964c5c79b6000430d6afd8ac93ac516d8baab1b295d473a98f9bf80e3f40cae",
+      "latencyMs": 15583,
+      "costUsd": 0.01,
+      "signal": "UNKNOWN",
+      "confidence": 0.6,
+      "summary": "No match was found in the checked feed(s) (google-safe-browsing+cert-polska). This does not establish that the URL is safe. No match was returned by the checked feeds. This does not guarantee the URL is harmless or absent from other threat feeds.",
+      "uncertainty": "Provider confidence (60%) is below the 65% decision threshold.",
+      "payment": {
+        "protocol": "telegraph-escrow-epoch",
+        "rail": "escrow",
+        "receiptHash": "0x4eb3cfd8a20a45fd55655095dcf86c8404c827c15174003cfd493278564629ed",
+        "payer": "0xcb5be94b047cadbb50f1db54e5b7938be50d5e6a",
+        "miner": "6191",
+        "intent": "URL_SAFE_GENERAL",
+        "amountUnits": "10000",
+        "priceUsd": 0.01,
+        "epochId": 67,
+        "settlementMode": "epoch",
+        "chain": "telegraph",
+        "timestamp": 1795796317
+      },
+      "settlement": {
+        "header": null,
+        "onChain": null,
+        "txHash": null,
+        "receiptHash": "0x4eb3cfd8a20a45fd55655095dcf86c8404c827c15174003cfd493278564629ed",
+        "epochId": 67,
+        "explorerUrl": null
+      },
+      "probe": null,
+      "error": null
+    },
+    {
+      "stepId": "fact-check",
+      "targetFamily": "FACT_CHECK",
+      "requestedIntent": "FACT_CHECK_GENERAL",
+      "routedIntent": "FACT_CHECK_GENERAL",
+      "minerId": "4433",
+      "minerName": "LiveCert — Sourced Answers for Agents",
+      "servedRank": 1,
+      "signalHash": "0xbe3fffe342472192f9d2c67f9e10897697d623e79cf1fb10376ac5c125ad3f64",
+      "latencyMs": 44600,
+      "costUsd": 0.01,
+      "signal": "SUPPORTED",
+      "confidence": 0.65,
+      "summary": "True. True. Water boiling at 100 °C at 1 atm is a well-established scientific fact, though the provided evidence does not address it. The reference consulted (Wikipedia's article \"Celsius\") does not state it; this rating rests on well-established knowledge.",
+      "uncertainty": null,
+      "payment": {
+        "protocol": "telegraph-escrow-epoch",
+        "rail": "escrow",
+        "receiptHash": "0xf15790a36e187be3754269086092602a3986a91fd6321161bf121f60d9718613",
+        "payer": "0xcb5be94b047cadbb50f1db54e5b7938be50d5e6a",
+        "miner": "6126",
+        "intent": "FACT_CHECK_GENERAL",
+        "amountUnits": "10000",
+        "priceUsd": 0.01,
+        "epochId": 67,
+        "settlementMode": "epoch",
+        "chain": "telegraph",
+        "timestamp": 1795796361
+      },
+      "settlement": {
+        "header": null,
+        "onChain": null,
+        "txHash": null,
+        "receiptHash": "0xf15790a36e187be3754269086092602a3986a91fd6321161bf121f60d9718613",
+        "epochId": 67,
+        "explorerUrl": null
+      },
+      "probe": null,
+      "error": null
+    }
+  ],
+  "receiptHash": "sha256:d5d6a4f519fdc740581316e82e2828876e581d0894f385d1ce571ae2b333334b"
+}
