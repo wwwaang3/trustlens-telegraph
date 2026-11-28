@@ -1,0 +1,78 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz6v6z1_f46637",
+  "timestamp": "2026-11-27T16:21:34.094Z",
+  "executionMode": "live",
+  "isLivePayment": true,
+  "network": "telegraph-escrow (sepolia-testnet)",
+  "nodeUrl": "https://backend.telegraphprotocol.com",
+  "input": {
+    "claim": "The Earth is flat and NASA admitted the Moon landings were filmed in a Hollywood basement.",
+    "url": null,
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.05
+  },
+  "verdict": "SUSPICIOUS",
+  "action": "WARN_DO_NOT_PAY_OR_CLICK",
+  "confidence": 0.65,
+  "headline": "Suspicious consumer content flagged by Telegraph intelligence",
+  "explanation": "1 of 1 specialist check(s) flagged risk indicators (FACT_CHECK_GENERAL).",
+  "contradictions": [],
+  "uncertaintyFactors": [
+    "Flagged with moderate confidence; verify manually."
+  ],
+  "accounting": {
+    "totalCostUsd": 0.02,
+    "currency": "USDC",
+    "stepsPlanned": 1,
+    "stepsExecuted": 1,
+    "stepsSkippedByCap": 0,
+    "totalLatencyMs": 25235
+  },
+  "checks": [
+    {
+      "stepId": "fact-check",
+      "targetFamily": "FACT_CHECK",
+      "requestedIntent": "FACT_CHECK_GENERAL",
+      "routedIntent": "FACT_CHECK_GENERAL",
+      "minerId": "4433",
+      "minerName": "LiveCert — Sourced Answers for Agents",
+      "servedRank": 1,
+      "signalHash": "0x3180584ac257c5596d9db8aba66e5c4383f669d753334612b97c2db6f32157d3",
+      "latencyMs": 25231,
+      "costUsd": 0.02,
+      "signal": "SUSPICIOUS",
+      "confidence": 0.65,
+      "summary": "False. False. The claim that Earth is flat and that NASA admitted the Moon landings were filmed in a Hollywood basement is false; scientific consensus and evidence confirm Earth is spherical and the Moon landings were real. The reference consulted (Wikipedia's article \"Earth\") do",
+      "uncertainty": "Flagged with moderate confidence; verify manually.",
+      "payment": {
+        "protocol": "telegraph-escrow-epoch",
+        "rail": "escrow",
+        "receiptHash": "0xde1f50ae22be9c927912f464ee841cb8f7e0019ecbf9eb700a452bb552c94dab",
+        "payer": "0xcb5be94b047cadbb50f1db54e5b7938be50d5e6a",
+        "miner": "6126",
+        "intent": "FACT_CHECK_GENERAL",
+        "amountUnits": "10000",
+        "priceUsd": 0.02,
+        "epochId": 67,
+        "settlementMode": "epoch",
+        "chain": "telegraph",
+        "timestamp": 1795796518
+      },
+      "settlement": {
+        "header": null,
+        "onChain": null,
+        "txHash": null,
+        "receiptHash": "0xde1f50ae22be9c927912f464ee841cb8f7e0019ecbf9eb700a452bb552c94dab",
+        "epochId": 67,
+        "explorerUrl": null
+      },
+      "probe": null,
+      "error": null
+    }
+  ],
+  "receiptHash": "sha256:3a3d2a966fccecb2660888a558f033640411040369d7c6d56ffa73bdebec0e7c"
+}
