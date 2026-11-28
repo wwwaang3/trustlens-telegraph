@@ -1,0 +1,102 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz67cmv_86ad5b",
+  "timestamp": "2026-11-27T16:03:01.688Z",
+  "executionMode": "probe",
+  "isLivePayment": false,
+  "network": "base-sepolia (eip155:84532)",
+  "nodeUrl": "https://devnode.telegraphprotocol.com",
+  "input": {
+    "claim": "Water boils at 100 degrees Celsius at standard atmospheric pressure (1 atm).",
+    "url": "https://example.com",
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.05
+  },
+  "verdict": "UNKNOWN",
+  "action": "ABSTAIN_HUMAN_REVIEW_REQUIRED",
+  "confidence": 0,
+  "headline": "Insufficient or unverifiable evidence — returning UNKNOWN",
+  "explanation": "2 of 2 check(s) could not establish verifiable public proof (URL_SAFE_GENERAL, FACT_CHECK_GENERAL). Refusing forced binary judgment.",
+  "contradictions": [],
+  "uncertaintyFactors": [
+    "Dry-probe verified the live Telegraph HTTP 402 x402 challenge without signing payment; configure AGENT_PRIVATE_KEY and run in live mode to pay and obtain miner verdicts."
+  ],
+  "accounting": {
+    "totalCostUsd": 0,
+    "currency": "USDC",
+    "stepsPlanned": 2,
+    "stepsExecuted": 2,
+    "stepsSkippedByCap": 0,
+    "totalLatencyMs": 1963
+  },
+  "checks": [
+    {
+      "stepId": "url-safe",
+      "targetFamily": "URL_SAFE",
+      "requestedIntent": "URL_SAFE_GENERAL",
+      "routedIntent": "URL_SAFE_GENERAL",
+      "minerId": null,
+      "minerName": null,
+      "signalHash": null,
+      "latencyMs": 980,
+      "costUsd": 0,
+      "signal": "UNKNOWN",
+      "confidence": 0,
+      "summary": "Live Telegraph devnode challenged HTTP 402 ($0.0100 USDC on eip155:84532, payTo 0xC0A3FB6d3F1f4B54617d29ffbdA4663Af5F96e2e). Dry-probe mode did not sign payment.",
+      "uncertainty": "Dry-probe verified the live Telegraph HTTP 402 x402 challenge without signing payment; configure AGENT_PRIVATE_KEY and run in live mode to pay and obtain miner verdicts.",
+      "payment": null,
+      "settlement": null,
+      "probe": {
+        "status": 402,
+        "latencyMs": 980,
+        "x402Required": true,
+        "url": "https://devnode.telegraphprotocol.com/engine/v1/ask",
+        "x402Version": 2,
+        "resourceDescription": "Payment required for LLM-routed inference.",
+        "quoteUsd": 0.01,
+        "quoteUnits": "10000",
+        "network": "eip155:84532",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "payTo": "0xC0A3FB6d3F1f4B54617d29ffbdA4663Af5F96e2e",
+        "acceptsCount": 3
+      },
+      "error": null
+    },
+    {
+      "stepId": "fact-check",
+      "targetFamily": "FACT_CHECK",
+      "requestedIntent": "FACT_CHECK_GENERAL",
+      "routedIntent": "FACT_CHECK_GENERAL",
+      "minerId": null,
+      "minerName": null,
+      "signalHash": null,
+      "latencyMs": 983,
+      "costUsd": 0,
+      "signal": "UNKNOWN",
+      "confidence": 0,
+      "summary": "Live Telegraph devnode challenged HTTP 402 ($0.0100 USDC on eip155:84532, payTo 0xC0A3FB6d3F1f4B54617d29ffbdA4663Af5F96e2e). Dry-probe mode did not sign payment.",
+      "uncertainty": "Dry-probe verified the live Telegraph HTTP 402 x402 challenge without signing payment; configure AGENT_PRIVATE_KEY and run in live mode to pay and obtain miner verdicts.",
+      "payment": null,
+      "settlement": null,
+      "probe": {
+        "status": 402,
+        "latencyMs": 983,
+        "x402Required": true,
+        "url": "https://devnode.telegraphprotocol.com/engine/v1/ask",
+        "x402Version": 2,
+        "resourceDescription": "Payment required for LLM-routed inference.",
+        "quoteUsd": 0.01,
+        "quoteUnits": "10000",
+        "network": "eip155:84532",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "payTo": "0xC0A3FB6d3F1f4B54617d29ffbdA4663Af5F96e2e",
+        "acceptsCount": 3
+      },
+      "error": null
+    }
+  ],
+  "receiptHash": "sha256:8b0ca95a58c990941697d18ec62807cde0e15c77a2e4c81ba0324183685a89d0"
+}
