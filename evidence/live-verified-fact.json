@@ -1,0 +1,76 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz6uwbr_b230fb",
+  "timestamp": "2026-11-27T16:21:20.295Z",
+  "executionMode": "live",
+  "isLivePayment": true,
+  "network": "telegraph-escrow (sepolia-testnet)",
+  "nodeUrl": "https://backend.telegraphprotocol.com",
+  "input": {
+    "claim": "Water boils at 100 degrees Celsius at standard atmospheric pressure (1 atm).",
+    "url": null,
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.05
+  },
+  "verdict": "VERIFIED",
+  "action": "ALLOW_WITH_RECEIPT",
+  "confidence": 0.65,
+  "headline": "Verified benign / corroborated with Telegraph provenance receipt",
+  "explanation": "All 1 specialist check(s) corroborated the input with acceptable confidence and zero threat-feed hits.",
+  "contradictions": [],
+  "uncertaintyFactors": [],
+  "accounting": {
+    "totalCostUsd": 0.01,
+    "currency": "USDC",
+    "stepsPlanned": 1,
+    "stepsExecuted": 1,
+    "stepsSkippedByCap": 0,
+    "totalLatencyMs": 13683
+  },
+  "checks": [
+    {
+      "stepId": "fact-check",
+      "targetFamily": "FACT_CHECK",
+      "requestedIntent": "FACT_CHECK_GENERAL",
+      "routedIntent": "FACT_CHECK_GENERAL",
+      "minerId": "4433",
+      "minerName": "LiveCert — Sourced Answers for Agents",
+      "servedRank": 1,
+      "signalHash": "0xd0aca951f94446aae358a8fe49ba4cba79ef0effc871286bcd3e2d2ce446b76e",
+      "latencyMs": 13677,
+      "costUsd": 0.01,
+      "signal": "SUPPORTED",
+      "confidence": 0.65,
+      "summary": "True. True. Water boiling at 100 °C at 1 atm is a well-established scientific fact, though the provided evidence does not address it. The reference consulted (Wikipedia's article \"Celsius\") does not state it; this rating rests on well-established knowledge.",
+      "uncertainty": null,
+      "payment": {
+        "protocol": "telegraph-escrow-epoch",
+        "rail": "escrow",
+        "receiptHash": "0x19bba6736101a04a41039f66277a8966b44df3b5bee467649340b2c27c0e95a0",
+        "payer": "0xcb5be94b047cadbb50f1db54e5b7938be50d5e6a",
+        "miner": "6126",
+        "intent": "FACT_CHECK_GENERAL",
+        "amountUnits": "10000",
+        "priceUsd": 0.01,
+        "epochId": 67,
+        "settlementMode": "epoch",
+        "chain": "telegraph",
+        "timestamp": 1795796493
+      },
+      "settlement": {
+        "header": null,
+        "onChain": null,
+        "txHash": null,
+        "receiptHash": "0x19bba6736101a04a41039f66277a8966b44df3b5bee467649340b2c27c0e95a0",
+        "epochId": 67,
+        "explorerUrl": null
+      },
+      "probe": null,
+      "error": null
+    }
+  ],
+  "receiptHash": "sha256:a9774baa1afe64e7176593ae20167f97ab1cebadc3de9f87896d5854ce46cc2c"
+}
