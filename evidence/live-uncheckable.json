@@ -1,0 +1,78 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz6u5uz_e98167",
+  "timestamp": "2026-11-27T16:20:45.995Z",
+  "executionMode": "live",
+  "isLivePayment": true,
+  "network": "telegraph-escrow (sepolia-testnet)",
+  "nodeUrl": "https://backend.telegraphprotocol.com",
+  "input": {
+    "claim": "An unnamed private Telegram group moderator promised an undisclosed partner listing will double token value by midnight.",
+    "url": null,
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.05
+  },
+  "verdict": "UNKNOWN",
+  "action": "ABSTAIN_HUMAN_REVIEW_REQUIRED",
+  "confidence": 0.3,
+  "headline": "Insufficient or unverifiable evidence — returning UNKNOWN",
+  "explanation": "1 of 1 check(s) could not establish verifiable public proof (FACT_CHECK_GENERAL). Refusing forced binary judgment.",
+  "contradictions": [],
+  "uncertaintyFactors": [
+    "Provider confidence (30%) is below the 65% decision threshold."
+  ],
+  "accounting": {
+    "totalCostUsd": 0.01,
+    "currency": "USDC",
+    "stepsPlanned": 1,
+    "stepsExecuted": 1,
+    "stepsSkippedByCap": 0,
+    "totalLatencyMs": 21149
+  },
+  "checks": [
+    {
+      "stepId": "fact-check",
+      "targetFamily": "FACT_CHECK",
+      "requestedIntent": "FACT_CHECK_GENERAL",
+      "routedIntent": "FACT_CHECK_GENERAL",
+      "minerId": "4433",
+      "minerName": "LiveCert — Sourced Answers for Agents",
+      "servedRank": 1,
+      "signalHash": "0x1c63bb5fda69ac615d35bc39242d9f2dcbbc504cc57d446ff6febf645a475590",
+      "latencyMs": 21145,
+      "costUsd": 0.01,
+      "signal": "UNKNOWN",
+      "confidence": 0.3,
+      "summary": "Unverified. Unverified. There is no evidence provided to confirm or refute the claim, and no reliable source supports it, so it remains unverified. The reference consulted (no reference article) does not state it; this rating rests on well-established knowledge.",
+      "uncertainty": "Provider confidence (30%) is below the 65% decision threshold.",
+      "payment": {
+        "protocol": "telegraph-escrow-epoch",
+        "rail": "escrow",
+        "receiptHash": "0xf14a0d3f60ac6c881304a4432c352c2bd5768b615115ee38ce06472bd7822f4b",
+        "payer": "0xcb5be94b047cadbb50f1db54e5b7938be50d5e6a",
+        "miner": "6126",
+        "intent": "FACT_CHECK_GENERAL",
+        "amountUnits": "10000",
+        "priceUsd": 0.01,
+        "epochId": 67,
+        "settlementMode": "epoch",
+        "chain": "telegraph",
+        "timestamp": 1795796466
+      },
+      "settlement": {
+        "header": null,
+        "onChain": null,
+        "txHash": null,
+        "receiptHash": "0xf14a0d3f60ac6c881304a4432c352c2bd5768b615115ee38ce06472bd7822f4b",
+        "epochId": 67,
+        "explorerUrl": null
+      },
+      "probe": null,
+      "error": null
+    }
+  ],
+  "receiptHash": "sha256:eb5022d31a7519104ae53c0cf8d97deb91507a63a25c65b3dd5c995398de8773"
+}
