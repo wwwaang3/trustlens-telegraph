@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustLens — Consumer Claim &amp; Link Verifier · Telegraph Protocol</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">TL</div>
+        <div>
+          <h1>TrustLens</h1>
+          <p class="subtitle">Telegraph Protocol · Season II Mission 07 (Consumer Platform)</p>
+        </div>
+      </div>
+      <div class="status-pills" id="statusPills">
+        <span class="pill pill-neutral" id="nodePill">Node: connecting…</span>
+        <span class="pill pill-neutral" id="walletPill">Wallet: checking…</span>
+        <span class="pill pill-accent" id="budgetPill">Session Budget: $0.50</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero-strip">
+        <div>
+          <h2>Verify consumer claims, links &amp; listings with priced Telegraph provenance</h2>
+          <p>
+            Buys only the specialist Telegraph Intents needed (<code>URL_SAFE</code>,
+            <code>FACT_CHECK</code>, <code>PRODUCT_AUTHENTICITY</code>,
+            <code>AI_TEXT_DETECTION</code>), enforces hard per-check USDC spending caps, and
+            explicitly outputs <strong>UNKNOWN</strong> instead of forced binary True/False when
+            evidence is uncheckable, conflicting, or unavailable.
+          </p>
+        </div>
+        <button class="btn btn-secondary" id="probeLiveBtn" type="button">
+          Probe Live Devnode (402 Quote)
+        </button>
+      </section>
+
+      <section class="grid">
+        <!-- Left column: Input & Presets -->
+        <div class="card">
+          <div class="card-header">
+            <h3>1. Consumer Check Input</h3>
+            <span class="badge">Mission 07</span>
+          </div>
+
+          <div class="preset-bar">
+            <label class="field-label">Quick Mission 07 Test Presets (incl. UNKNOWN &amp; Failure Cases)</label>
+            <div class="preset-buttons" id="presetButtons"></div>
+          </div>
+
+          <form id="verifyForm" class="form">
+            <div class="field">
+              <label for="claimInput">Consumer Claim / Post / Offer</label>
+              <textarea
+                id="claimInput"
+                rows="3"
+                placeholder="e.g., Official support giveaway, health claim, or marketplace offer..."
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="urlInput">Optional Link / Listing URL</label>
+                <input id="urlInput" type="url" placeholder="https://example.com" />
+              </div>
+              <div class="field">
+                <label for="productInput">Optional Barcode / GTIN</label>
+                <input id="productInput" type="text" placeholder="e.g., 5449000000996" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="textSampleInput">Optional Listing / Review Copy (for AI Text Detection)</label>
+              <textarea
+                id="textSampleInput"
+                rows="2"
+                placeholder="Paste ≥40 chars of suspicious review/promo copy..."
+              ></textarea>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="modeSelect">Execution Mode</label>
+                <select id="modeSelect">
+                  <option value="live">Live Telegraph Testnet (Real Paid Escrow / x402 Call)</option>
+                  <option value="probe">Live Devnode 402 Probe (Real Node Quote, $0 Spent)</option>
+                  <option value="fixture">Offline Fixture Replay (Instant Demo — Clearly Tagged)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budgetInput">Max Per-Check Spend Cap (USDC)</label>
+                <input id="budgetInput" type="number" step="0.005" min="0" value="0.05" />
+              </div>
+            </div>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="simulateFailureCheckbox" />
+              <span>Simulate upstream miner timeout / 503 failure (verify fail-closed UNKNOWN behavior)</span>
+            </label>
+
+            <div class="actions">
+              <button class="btn btn-primary" id="runVerifyBtn" type="submit">
+                Run Verification &amp; Issue Receipt
+              </button>
+              <button class="btn btn-ghost" id="clearBtn" type="button">Clear</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right column: Verdict & Receipt -->
+        <div class="card">
+          <div class="card-header">
+            <h3>2. Verdict &amp; Tamper-Evident Claim Receipt</h3>
+            <div class="receipt-actions" id="receiptActions" hidden>
+              <button class="btn btn-small btn-secondary" id="copyMdBtn" type="button">Copy Markdown</button>
+              <button class="btn btn-small btn-secondary" id="downloadJsonBtn" type="button">Download JSON</button>
+            </div>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <p>Select any Mission 07 preset or enter a custom claim/URL to inspect TrustLens's tri-state verdict, cost accounting, and Telegraph provenance receipt.</p>
+          </div>
+
+          <div id="resultPanel" hidden>
+            <div id="modeBanner" class="mode-banner"></div>
+
+            <div id="verdictBox" class="verdict-box">
+              <div class="verdict-top">
+                <span id="verdictBadge" class="verdict-badge">UNKNOWN</span>
+                <span id="actionBadge" class="action-badge"></span>
+                <span id="costBadge" class="cost-badge">$0.0000 USDC</span>
+              </div>
+              <h4 id="verdictHeadline"></h4>
+              <p id="verdictExplanation"></p>
+            </div>
+
+            <div id="uncertaintyBox" class="callout callout-warn" hidden>
+              <strong>Uncertainty &amp; Guardrail Disclosures</strong>
+              <ul id="uncertaintyList"></ul>
+            </div>
+
+            <div class="section-sub">
+              <h4>Telegraph Specialist Checks</h4>
+              <div id="checksList" class="checks-list"></div>
+            </div>
+
+            <details class="raw-details">
+              <summary>Inspect Signed Receipt JSON &amp; SHA-256 Digest</summary>
+              <pre id="receiptJson"></pre>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Devnode & Operational Metrics -->
+      <section class="grid grid-bottom">
+        <div class="card">
+          <div class="card-header">
+            <h3>Live Telegraph Devnode Supply (Mission 07 Intents)</h3>
+            <span class="badge" id="devnodeTotalBadge">Not probed yet</span>
+          </div>
+          <div id="liveSupplyContent" class="live-supply">
+            Click <strong>Probe Live Devnode (402 Quote)</strong> above to query live canonical intents, active miner counts, and a real HTTP 402 x402 payment quote from <code>devnode.telegraphprotocol.com</code>.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Accounting &amp; Quality Metrics</h3>
+            <span class="badge" id="ledgerCountBadge">0 runs</span>
+          </div>
+          <div class="metrics-grid" id="metricsGrid">
+            <div class="metric"><span class="metric-label">Total Checks</span><strong id="mTotal">0</strong></div>
+            <div class="metric"><span class="metric-label">Verified / Suspicious / Unknown</span><strong id="mBreakdown">0 / 0 / 0</strong></div>
+            <div class="metric"><span class="metric-label">Total Spent (USDC)</span><strong id="mSpent">$0.0000</strong></div>
+            <div class="metric"><span class="metric-label">Avg Cost / Check</span><strong id="mAvg">$0.0000</strong></div>
+          </div>
+          <div id="recentRuns" class="recent-runs"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
