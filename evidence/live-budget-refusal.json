@@ -1,0 +1,37 @@
+{
+  "schema": "trustlens.mission07.receipt.v1",
+  "mission": "Mission 07 — Consumer Platform (Season II)",
+  "runId": "tl_mwz6uma6_18c61d",
+  "timestamp": "2026-11-27T16:21:07.278Z",
+  "executionMode": "live",
+  "isLivePayment": false,
+  "network": "telegraph-escrow (sepolia-testnet)",
+  "nodeUrl": "https://backend.telegraphprotocol.com",
+  "input": {
+    "claim": "Check whether this marketplace seller invoice is genuine.",
+    "url": "https://example.com/invoice/9912",
+    "productCode": null,
+    "hasTextSample": false,
+    "mediaUrl": null,
+    "maxBudgetUsdc": 0.005
+  },
+  "verdict": "UNKNOWN",
+  "action": "BLOCKED_BY_BUDGET_GUARD",
+  "confidence": 0,
+  "headline": "Check refused before payment: spending limit exceeded",
+  "explanation": "Spending limit ($0.0050 USDC) is below the minimum single Telegraph call cost ($0.0100 USDC). No x402 authorization was signed.",
+  "contradictions": [],
+  "uncertaintyFactors": [
+    "Spending limit ($0.0050 USDC) is below the minimum single Telegraph call cost ($0.0100 USDC). No x402 authorization was signed."
+  ],
+  "accounting": {
+    "totalCostUsd": 0,
+    "currency": "USDC",
+    "stepsPlanned": 2,
+    "stepsExecuted": 0,
+    "stepsSkippedByCap": 2,
+    "totalLatencyMs": 0
+  },
+  "checks": [],
+  "receiptHash": "sha256:c3c671962f74fe5ef27959b6f9a3f89585411547194dfc86bdc3098245b6aefa"
+}
